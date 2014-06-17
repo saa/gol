@@ -25,9 +25,11 @@ start(_StartType, _StartArgs) ->
     ets:new(games, [set, public, named_table]),
     io:format("Look http://localhost:~p~n", [Port]),
     {ok, Storage} = dets:open_file(code:priv_dir(gol) ++ "/storage.data", []),
-    ets:insert(games, {sr, Storage}),
+    application:set_env(gol, sr, Storage),
     gol_sup:start_link().
 
 
 stop(_State) ->
+    {ok, Sr} = application:get_env(gol, sr),
+    dets:close(Sr),
     ok.

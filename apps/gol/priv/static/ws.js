@@ -30,6 +30,11 @@ function disconnect() {
 };
 
 
+function store() {
+    websocket.send('store');
+};
+
+
 function onOpen(evt) {
     showCurrentStatus('<span style="color: green;">CONNECTED </span>');
     $("#connected").fadeIn('slow');

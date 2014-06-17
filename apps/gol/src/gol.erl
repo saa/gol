@@ -57,7 +57,7 @@ init_world(X, Y, Size, World) ->
 
 
 get_random_state() ->
-    case random:uniform(5) =:= 1 of
+    case random:uniform(random:uniform(10)) =:= 1 of
         true ->
             alive;
         false ->
