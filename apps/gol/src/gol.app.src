@@ -1,0 +1,13 @@
+{application, gol,
+ [
+  {description, "Implement Conway's Game of Life"},
+  {vsn, "1"},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib,
+                  cowboy
+                 ]},
+  {mod, { gol_app, []}},
+  {env, []}
+ ]}.
