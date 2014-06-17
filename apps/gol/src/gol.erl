@@ -1,7 +1,5 @@
 -module(gol).
 
--compile([export_all]).
-
 -export([create_world/1]).
 -export([create_next_generation/2]).
 
