@@ -18,6 +18,9 @@ websocket_init(_TransportName, Req, _Opts) ->
 	{ok, Req, #state{}}.
 
 
+websocket_handle({text, <<"store">>}, Req, State) ->
+    io:format("STORE!!!!"),
+    {ok, Req, State};
 websocket_handle({text, GameId}, Req, State) ->
     Size = ets:lookup_element(games, GameId, 2),
     {World, HtmlWorld} = gol:create_world(Size),

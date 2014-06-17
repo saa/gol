@@ -4,7 +4,6 @@ $(document).ready(init);
 
 function init() {
     var wsHost = "ws://" + window.location.host + "/ws";
-    console.log(wsHost);
     if(!("WebSocket" in window)){
         $('#status').append('<p><span style="color: red;">websockets are not supported </span></p>');
         $("#navigation").hide();

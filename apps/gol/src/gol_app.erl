@@ -24,6 +24,8 @@ start(_StartType, _StartArgs) ->
     {ok, _} = cowboy:start_http(http, 100, [{port, Port}], [{env, [{dispatch, Dispatch}]}]),
     ets:new(games, [set, public, named_table]),
     io:format("Look http://localhost:~p~n", [Port]),
+    {ok, Storage} = dets:open_file(code:priv_dir(gol) ++ "/storage.data", []),
+    ets:insert(games, {sr, Storage}),
     gol_sup:start_link().
 
 
